@@ -39,30 +39,51 @@ addRiskItem("Data Breach", "High", "IT");
 addRiskItem("Supply Chain Disruption", "Medium", "Operations");
 
 // Task 3 Removing Risk Items 
-let resolveButton = document.createElement("button");
-resolveButton.textContent = "Resolve";
-resolveButton.addEventListener("click", function() {
-    riskCard.remove();
-});
-riskCard.appendChild(resolveButton);
+function addRiskItem(riskName, riskLevel, department) {
+    if (!riskName || !riskLevel || !department) {
+        console.error(" Missing parameters.");
+        return;
+    }
+    
+    let riskCard = document.createElement("div");
+    riskCard.classList.add("riskCard");
 
-// resolve button created 
+    let riskNameElem = document.createElement("p");
+    riskNameElem.innerHTML = `<strong>Risk Name:</strong> ${riskName}`;
+    
+    let riskLevelElem = document.createElement("p");
+    riskLevelElem.innerHTML = `<strong>Risk Level:</strong> ${riskLevel}`;
+    
+    let departmentElem = document.createElement("p");
+    departmentElem.innerHTML = `<strong>Department:</strong> ${department}`;
+    //risk card created
 
-riskCard.appendChild(riskNameElem);
-riskCard.appendChild(riskLevelElem);
-riskCard.appendChild(departmentElem);
-riskCard.appendChild(resolveButton);
-// appending elements
+   
+    let resolveBtn = document.createElement("button");
+    resolveBtn.textContent = "Resolve";
+    resolveBtn.classList.add("resolve-btn");
+
+    resolveBtn.addEventListener("click", function () {
+        riskCard.remove();
+    });
+     // resolve button created
+
+
+    riskCard.appendChild(riskNameElem);
+    riskCard.appendChild(riskLevelElem);
+    riskCard.appendChild(departmentElem);
+    riskCard.appendChild(resolveBtn);
 
     
-    
-let riskDashboard = document.getElementById("riskDashboard");
-if (riskDashboard) {
-    riskDashboard.appendChild(riskCard);
-} else {
-    console.error("Error: riskDashboard element not found.");
+    let riskDashboard = document.getElementById("riskDashboard");
+    if (riskDashboard) {
+        riskDashboard.appendChild(riskCard);
+    } else {
+        console.error("Error: riskDashboard element not found.");
+    }
 }
-// Test case 
-addRiskItem("Market Fluctuations", "High", "Finance");
+// append risk card to dashboard
 
+// Test Case
+addRiskItem("Market Fluctuations", "High", "Finance");
 
