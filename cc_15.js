@@ -185,3 +185,10 @@ document.body.insertBefore(increaseButton, document.getElementById("riskDashboar
 addRiskItem("Employee Retention", "Low", "HR"); 
 // Clicking "Increase Risk Levels" should change it to "Medium".
 
+// Task 6 Handling event Propogation 
+
+
+riskCard.addEventListener("click", function (event) {
+    event.stopPropagation();
+});
+
