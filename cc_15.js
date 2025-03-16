@@ -146,4 +146,42 @@ function addRiskItem(riskName, riskLevel, department) {
 addRiskItem("Cybersecurity Threat", "High", "IT");
 addRiskItem("HR Compliance Issue", "Low", "Human Resources");
 
-//
+// Task 5- Implementing Bulk Updates
+
+function increaseRiskLevels() {
+    document.querySelectorAll(".riskCard").forEach((card) => {
+        let riskLevelElem = card.querySelector(".risk-level");
+        let currentLevel = riskLevelElem.textContent.toLowerCase();
+
+        let updatedLevel;
+        switch (currentLevel) {
+            case "low":
+                updatedLevel = "Medium";
+                card.style.backgroundColor = "yellow";
+                break;
+            case "medium":
+                updatedLevel = "High";
+                card.style.backgroundColor = "red";
+                break;
+            case "high":
+                updatedLevel = "High"; // does not change
+                break;
+            default:
+                updatedLevel = currentLevel;
+        }
+
+        riskLevelElem.textContent = updatedLevel;
+    });
+}
+// function to increase all risk levels
+
+let increaseButton = document.createElement("button");
+increaseButton.textContent = "Increase Risk Levels";
+increaseButton.addEventListener("click", increaseRiskLevels);
+
+document.body.insertBefore(increaseButton, document.getElementById("riskDashboard"));
+
+// Test Case
+addRiskItem("Employee Retention", "Low", "HR"); 
+// Clicking "Increase Risk Levels" should change it to "Medium".
+
