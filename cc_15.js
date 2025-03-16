@@ -87,3 +87,63 @@ function addRiskItem(riskName, riskLevel, department) {
 // Test Case
 addRiskItem("Market Fluctuations", "High", "Finance");
 
+// Task 4: Categorizing Risks by Level
+function addRiskItem(riskName, riskLevel, department) {
+    if (!riskName || !riskLevel || !department) {
+        console.error("Error: Missing required parameters.");
+        return;
+    }
+    
+    let riskCard = document.createElement("div");
+    riskCard.classList.add("riskCard");
+
+    switch (riskLevel.toLowerCase()) {
+        case "low":
+            riskCard.style.backgroundColor = "neongreen";
+            break;
+        case "medium":
+            riskCard.style.backgroundColor = "yellow";
+            break;
+        case "high":
+            riskCard.style.backgroundColor = "red";
+            break;
+        default:
+            riskCard.style.backgroundColor = "lightblue";
+    }
+    // colours for risk levels
+
+    let riskNameElem = document.createElement("p");
+    riskNameElem.innerHTML = `<strong>Risk Name:</strong> ${riskName}`;
+    
+    let riskLevelElem = document.createElement("p");
+    riskLevelElem.innerHTML = `<strong>Risk Level:</strong> ${riskLevel}`;
+    
+    let departmentElem = document.createElement("p");
+    departmentElem.innerHTML = `<strong>Department:</strong> ${department}`;
+
+    let resolveBtn = document.createElement("button");
+    resolveBtn.textContent = "Resolve";
+    resolveBtn.classList.add("resolve-btn");
+
+    resolveBtn.addEventListener("click", function () {
+        riskCard.remove();
+    });
+
+    riskCard.appendChild(riskNameElem);
+    riskCard.appendChild(riskLevelElem);
+    riskCard.appendChild(departmentElem);
+    riskCard.appendChild(resolveBtn);
+
+    let riskDashboard = document.getElementById("riskDashboard");
+    if (riskDashboard) {
+        riskDashboard.appendChild(riskCard);
+    } else {
+        console.error("Error: riskDashboard element not found.");
+    }
+}
+
+// Test Case
+addRiskItem("Cybersecurity Threat", "High", "IT");
+addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+
+//
