@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Ticket Directory</title>
+</head>
+
+<body>
+    <header>
+        <h1>Risk Management Dashboard</h1>
+    </header>
+
+    <main>
+        <h2>Risk Dashboard</h2>
+        <div id="riskDashboard"></div>
+
+    <h2>Add New Risk Item</h2>
+    <form id="riskForm">
+        <label for="riskName">Risk Name:</label>
+        <input type="text" id="riskName" name="riskName" required>
+
+        <label for="riskDescription">Description:</label>
+        <input type="text" id="riskDescription" name="riskDescription" required>
+
+        <label for="riskLevel">Risk Level:</label>
+        <select id="riskLevel" name="riskLevel" required>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option velue="High">High</option>
+        </select>
+
+        <button type="submit">Submit Risk Assessment</button>
+        </form>
+
+     <h2>Ticket Display</h2>
+    
+    </main>
+
+    <footer>
+        <p>Coding Challenge 15. All rights reserved </p>
+    </footer>
+</body>
+<script src="cc_15.js"></script>
+</html>
