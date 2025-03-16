@@ -33,3 +33,36 @@ function addRiskItem(riskName, riskLevel, department) {
         console.error("Error: riskDashboard element not found.");
     }
 }
+
+// Test Cases 
+addRiskItem("Data Breach", "High", "IT");
+addRiskItem("Supply Chain Disruption", "Medium", "Operations");
+
+// Task 3 Removing Risk Items 
+let resolveButton = document.createElement("button");
+resolveButton.textContent = "Resolve";
+resolveButton.addEventListener("click", function() {
+    riskCard.remove();
+});
+riskCard.appendChild(resolveButton);
+
+// resolve button created 
+
+riskCard.appendChild(riskNameElem);
+riskCard.appendChild(riskLevelElem);
+riskCard.appendChild(departmentElem);
+riskCard.appendChild(resolveButton);
+// appending elements
+
+    
+    
+let riskDashboard = document.getElementById("riskDashboard");
+if (riskDashboard) {
+    riskDashboard.appendChild(riskCard);
+} else {
+    console.error("Error: riskDashboard element not found.");
+}
+// Test case 
+addRiskItem("Market Fluctuations", "High", "Finance");
+
+
